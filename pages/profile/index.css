@@ -1,1 +1,134 @@
-/* Desenvolva sua estilização aqui...*/
+body {
+    width: 26.5625;
+    max-width: 100%;
+    min-height: 100vh;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+}
+
+header {
+    padding: 1rem;
+    margin: 0 auto;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+}
+
+.dev-data-img {
+    display: flex;
+    align-items: center;
+    gap: 1.25rem;
+}
+
+.dev-img-container {
+    width: var(--img-profile);
+    height: var(--img-profile);
+    overflow: hidden;
+    border-radius: 50%;
+    border: 0.125rem solid var(--color-brand-2);
+}
+
+.dev-pic {
+    width: 100%;
+    border-radius: 50%;
+}
+
+.dev-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.dev-name {
+    font-size: var(--title-2);
+    font-weight: var(--font-weight-1);
+    line-height: var(--line-height-2);
+    color: var(--color-grey-7);
+    margin-bottom: 0.875rem;
+}
+
+.dev-bio {
+    font-size: var(--text-2);
+    font-weight: var(--font-weight-3);
+    line-height: var(--line-height-4);
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.nav-header {
+    display: flex;
+    gap: 0.875rem;
+    align-items: center;
+}
+
+main {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.repositories {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 1rem;
+}
+
+.repository {
+    width: 23.8125rem;
+    padding: var(--padding-cards);
+    max-width: 95vw;
+    min-height: 15rem;
+    border: 0.125rem solid rgba(255, 255, 255, 0.1);
+    border-radius: var(--radius-2);
+}
+
+.repository:hover {
+    border: 0.125rem solid var(--color-grey-7);
+}
+
+.repository-name {
+    font-size: var(--title-3);
+    font-weight: var(--font-weight-3);
+    line-height: var(--line-height-3);
+    color: var(--color-grey-7);
+    margin-bottom: 1.3125rem;
+}
+
+.repository-description {
+    font-size: var(--text-3);
+    font-weight: var(--font-weight-4);
+    line-height: var(--line-height-6);
+    color: rgba(255, 255, 255, 0.6);
+    margin-bottom: 1.6875rem;
+}
+
+.repositoryButtons {
+    display: flex;
+    align-items: center;
+    gap: 0.875rem;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

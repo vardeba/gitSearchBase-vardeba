@@ -4,12 +4,47 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="/styles/globalStyles.css" />
-    <link rel="stylesheet" href="index.css" />
+    <link rel="stylesheet" href="../../styles/globalStyles.css" />
+    <link rel="stylesheet" href="../../styles/buttons.css" />
+    <link rel="stylesheet" href="./index.css" />
     <title>Nome do usuário Github</title>
   </head>
   <body>
-    <main></main>
+    <header>
+      <div class="dev-data-img">
+        <figure class="dev-img-container">
+          <img class="dev-pic" src="https://avatars.githubusercontent.com/u/86993356?v=4" alt="Foto de Valdecir Teixeira">
+        </figure>
+        <div class="dev-info">
+          <h2 class="dev-name">Valdecir Teixeira</h2>
+          <p class="dev-bio">Full Stack Developer</p>
+        </div>
+      </div>
+      <nav class="nav-header">
+        <a href="mailto:#">
+          <button class="btn-1">Email</button>
+        </a>
+        <a href="../home/index.html">
+          <button class="btn-2">Trocar de usuário</button>
+        </a>
+      </nav>
+    </header>
+    <main>
+      <ul class="repositories">
+        <li class="repository">
+          <h3 class="repository-name">Nome do repositório</h3>
+          <p class="repository-description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci dolore, saepe maxime praesentium ut amet.</p>
+          <div class="repositoryButtons">
+            <a href="repository_url">
+              <button class="btn-3">Repositório</button>
+            </a>
+            <a href="page_url">
+              <button class="btn-3">Demo</button>
+            </a>
+          </div>
+        </li>
+      </ul>
+    </main>
     <script src="index.js"></script>
   </body>
 </html>

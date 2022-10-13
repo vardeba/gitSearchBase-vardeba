@@ -1,1 +1,36 @@
-/* Desenvolva sua lógica aqui...*/
+let usersSearched = [
+    {
+        "login": "vardeba",
+        "id": 86993356,
+        "node_id": "MDQ6VXNlcjg2OTkzMzU2",
+        "avatar_url": "https://avatars.githubusercontent.com/u/86993356?v=4",
+        "gravatar_id": "",
+        "url": "https://api.github.com/users/vardeba",
+        "html_url": "https://github.com/vardeba",
+        "followers_url": "https://api.github.com/users/vardeba/followers",
+        "following_url": "https://api.github.com/users/vardeba/following{/other_user}",
+        "gists_url": "https://api.github.com/users/vardeba/gists{/gist_id}",
+        "starred_url": "https://api.github.com/users/vardeba/starred{/owner}{/repo}",
+        "subscriptions_url": "https://api.github.com/users/vardeba/subscriptions",
+        "organizations_url": "https://api.github.com/users/vardeba/orgs",
+        "repos_url": "https://api.github.com/users/vardeba/repos",
+        "events_url": "https://api.github.com/users/vardeba/events{/privacy}",
+        "received_events_url": "https://api.github.com/users/vardeba/received_events",
+        "type": "User",
+        "site_admin": false,
+        "name": "Valdecir Teixeira",
+        "company": null,
+        "blog": "",
+        "location": "Fazenda Rio Grande - Paraná - Brasil",
+        "email": null,
+        "hireable": null,
+        "bio": "I've loved games ever since. Trying to improve the world through technology!",
+        "twitter_username": null,
+        "public_repos": 4,
+        "public_gists": 0,
+        "followers": 1,
+        "following": 1,
+        "created_at": "2021-07-06T01:50:08Z",
+        "updated_at": "2022-10-10T22:19:31Z"
+    }
+];
