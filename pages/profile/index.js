@@ -1,36 +1,58 @@
-let usersSearched = [
-    {
-        "login": "vardeba",
-        "id": 86993356,
-        "node_id": "MDQ6VXNlcjg2OTkzMzU2",
-        "avatar_url": "https://avatars.githubusercontent.com/u/86993356?v=4",
-        "gravatar_id": "",
-        "url": "https://api.github.com/users/vardeba",
-        "html_url": "https://github.com/vardeba",
-        "followers_url": "https://api.github.com/users/vardeba/followers",
-        "following_url": "https://api.github.com/users/vardeba/following{/other_user}",
-        "gists_url": "https://api.github.com/users/vardeba/gists{/gist_id}",
-        "starred_url": "https://api.github.com/users/vardeba/starred{/owner}{/repo}",
-        "subscriptions_url": "https://api.github.com/users/vardeba/subscriptions",
-        "organizations_url": "https://api.github.com/users/vardeba/orgs",
-        "repos_url": "https://api.github.com/users/vardeba/repos",
-        "events_url": "https://api.github.com/users/vardeba/events{/privacy}",
-        "received_events_url": "https://api.github.com/users/vardeba/received_events",
-        "type": "User",
-        "site_admin": false,
-        "name": "Valdecir Teixeira",
-        "company": null,
-        "blog": "",
-        "location": "Fazenda Rio Grande - Paraná - Brasil",
-        "email": null,
-        "hireable": null,
-        "bio": "I've loved games ever since. Trying to improve the world through technology!",
-        "twitter_username": null,
-        "public_repos": 4,
-        "public_gists": 0,
-        "followers": 1,
-        "following": 1,
-        "created_at": "2021-07-06T01:50:08Z",
-        "updated_at": "2022-10-10T22:19:31Z"
-    }
-];
+const header = document.querySelector('header');
+
+const ul = document.querySelector('ul');
+
+function showDev(array){
+    let newDev = array[0];
+    let devSearched = makeDevTag(newDev);
+    header.insertAdjacentHTML('afterbegin', devSearched)
+}
+
+async function showRepositories(array){
+    let repositoriesList = await getRepositories(array);
+    console.log(repositoriesList)
+    repositoriesList.forEach(repository => {
+        let newRepository = repository;
+        ul.insertAdjacentHTML('beforeend', `
+        <li class="repository">
+            <h3 class="repository-name">${newRepository.name}</h3>
+            <p class="repository-description">${newRepository.description}</p>
+            <div class="repositoryButtons">
+                <a href=${newRepository.url}>
+                    <button class="btn-3">Repositório</button>
+                </a>
+                <a href=${newRepository.html_url}>
+                    <button class="btn-3">Demo</button>
+                </a>
+            </div>
+        </li>
+        
+        
+        
+        
+        
+        `);
+
+        
+    });
+}
+
+showDev(usersSearched);
+
+showRepositories(usersSearched);
+
+function makeDevTag(user){
+    return `
+    <div class="dev-data-img">
+        <figure class="dev-img-container">
+          <img class="dev-pic" src=${user.avatar_url} alt=${user.name}>
+        </figure>
+        <div class="dev-info">
+          <h2 class="dev-name">${user.name}</h2>
+          <p class="dev-bio">${user.bio}</p>
+        </div>
+    </div>
+    
+    
+    `;
+}
