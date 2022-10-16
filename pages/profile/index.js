@@ -1,3 +1,13 @@
+function getDataFromLocalstorage(){
+    const localStorageDataJSON = localStorage.getItem('lastSearched');
+    if (localStorageDataJSON){
+        const localStorageData = JSON.parse(localStorageDataJSON);
+        usersSearched = [...localStorageData];
+    };
+};
+
+getDataFromLocalstorage();
+
 const body = document.querySelector('body');
 
 const ul = document.querySelector('ul');
