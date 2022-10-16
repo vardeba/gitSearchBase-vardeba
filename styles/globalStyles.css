@@ -8,7 +8,6 @@
   text-decoration: none;
   font-family: 'Inter', sans-serif;
   color: #FFFFFF;
-  background-color: #000000;
 }
 
 :root{
@@ -47,6 +46,7 @@
     --text-1:  1.25rem;             /* 20 */
     --text-2:  1rem;                /* 16 */
     --text-3:  0.875rem;            /* 14 */
+    --text-4:  0.75rem;             /* 12 */
 
     --line-height-1: 3rem;          /* 48 */
     --line-height-2: 1.8125rem;     /* 29 */
@@ -54,7 +54,6 @@
     --line-height-4: 1.1875rem;     /* 19 */
     --line-height-5: 1.3125rem;     /* 15 */
     --line-height-6: 150%;          /* ?? */
-
   
     --font-weight-1: 700;
     --font-weight-2: 600;

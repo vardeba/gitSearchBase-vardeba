@@ -1,58 +1,141 @@
-const header = document.querySelector('header');
+const body = document.querySelector('body');
 
 const ul = document.querySelector('ul');
 
+const titleTag = document.querySelector('title');
+
+async function getRepositories(array){
+    try{
+        let repositoriesList = await fetch(array[0].repos_url);
+        let repositoriesListJson = repositoriesList.json();
+        return repositoriesListJson;
+    }catch(error){
+        return error;
+    }
+}
+
 function showDev(array){
     let newDev = array[0];
+    showName(newDev);
     let devSearched = makeDevTag(newDev);
-    header.insertAdjacentHTML('afterbegin', devSearched)
+    body.insertAdjacentElement('afterbegin', devSearched);
+    showRepositories(array);
 }
 
 async function showRepositories(array){
     let repositoriesList = await getRepositories(array);
-    console.log(repositoriesList)
     repositoriesList.forEach(repository => {
         let newRepository = repository;
-        ul.insertAdjacentHTML('beforeend', `
-        <li class="repository">
-            <h3 class="repository-name">${newRepository.name}</h3>
-            <p class="repository-description">${newRepository.description}</p>
-            <div class="repositoryButtons">
-                <a href=${newRepository.url}>
-                    <button class="btn-3">Repositório</button>
-                </a>
-                <a href=${newRepository.html_url}>
-                    <button class="btn-3">Demo</button>
-                </a>
-            </div>
-        </li>
-        
-        
-        
-        
-        
-        `);
-
-        
+        let repositoryReady = createRepository(newRepository);
+        ul.appendChild(repositoryReady);
     });
 }
 
-showDev(usersSearched);
+function createRepository(repository){
+    const li = document.createElement('li');
+    li.classList.add('repository');
 
-showRepositories(usersSearched);
+    const h3RepositoryName = document.createElement('h3');
+    h3RepositoryName.classList.add('repository-name');
+    h3RepositoryName.innerText = `${repository.name}`;
+
+    const pRepositoryDescription = document.createElement('p');
+    pRepositoryDescription.classList.add('repository-description');
+    if (repository.description == null){
+        pRepositoryDescription.innerText = "Sem descrição";
+    }else{
+        pRepositoryDescription.innerText = `${repository.description}`;
+    }
+
+    const divRepositoryButtons = document.createElement('div');
+    divRepositoryButtons.classList.add('repositoryButtons');
+
+    const aRepositoryLink = document.createElement('a');
+    aRepositoryLink.setAttribute('href', `${repository.html_url}`);
+    aRepositoryLink.setAttribute('target', "_blank");
+
+    const buttonRepositoryLink = document.createElement('button');
+    buttonRepositoryLink.classList.add('btn-3');
+    buttonRepositoryLink.innerText = "Repositório";
+
+    const aPageLink = document.createElement('a');
+    aPageLink.setAttribute('href', `https://${repository.owner.login}.github.io/${repository.name}`);
+    aPageLink.setAttribute('target', "_blank");
+
+    const buttonPageLink = document.createElement('button');
+    buttonPageLink.classList.add('btn-3');
+    buttonPageLink.innerText = "Demo";
+    
+    aPageLink.appendChild(buttonPageLink);
+    aRepositoryLink.appendChild(buttonRepositoryLink);
+    divRepositoryButtons.append(aRepositoryLink, aPageLink);
+    li.append(h3RepositoryName, pRepositoryDescription, divRepositoryButtons);
+
+    return li;
+}
 
 function makeDevTag(user){
-    return `
-    <div class="dev-data-img">
-        <figure class="dev-img-container">
-          <img class="dev-pic" src=${user.avatar_url} alt=${user.name}>
-        </figure>
-        <div class="dev-info">
-          <h2 class="dev-name">${user.name}</h2>
-          <p class="dev-bio">${user.bio}</p>
-        </div>
-    </div>
+    const header = document.createElement('header');
+
+    const divDevDataImg = document.createElement('div');
+    divDevDataImg.classList.add('dev-data-img');
+
+    const figureDevImgContainer = document.createElement('figure');
+    figureDevImgContainer.classList.add('dev-img-container');
+
+    const imgDevImg = document.createElement('img');
+    imgDevImg.classList.add('dev-pic');
+    imgDevImg.setAttribute('src', `${user.avatar_url}`);
+    imgDevImg.setAttribute('alt', `${user.name}`);
+
+    const divDevInfo = document.createElement('div');
+    divDevInfo.classList.add('dev-info');
+
+    const h2DevName = document.createElement('h2');
+    h2DevName.classList.add('dev-name');
+    h2DevName.innerText = `${user.name}`;
+
+    const pDevBio = document.createElement('p');
+    pDevBio.classList.add('dev-bio');
+    if (user.bio == null){
+        pDevBio.innerText = `${user.login}`;
+    }else{
+        pDevBio.innerText = `${user.bio}`;
+    }
+
+    const navDevButtons = document.createElement('nav');
+    navDevButtons.classList.add('nav-header');
+
+    const aDevEmail = document.createElement('a');
+    aDevEmail.setAttribute('href', `mailto:${user.email}`);
+
+    const buttonDevEmail = document.createElement('button');
+    buttonDevEmail.classList.add('btn-1');
+    buttonDevEmail.innerText = "Email";
+
+    const aHome = document.createElement('a');
+    aHome.setAttribute('href', "../home/index.html");
     
-    
-    `;
+
+    const buttonHome = document.createElement('button');
+    buttonHome.classList.add('btn-2');
+    buttonHome.innerText = "Trocar de usuário";
+
+    divDevInfo.append(h2DevName, pDevBio);
+    figureDevImgContainer.appendChild(imgDevImg);
+    divDevDataImg.append(figureDevImgContainer, divDevInfo);
+
+    aHome.appendChild(buttonHome);
+    aDevEmail.appendChild(buttonDevEmail);
+    navDevButtons.append(aDevEmail, aHome);
+
+    header.append(divDevDataImg, navDevButtons);
+
+    return header;
 }
+
+function showName(user){
+    titleTag.innerText = `Git Search - ${user.name}`;
+}
+
+showDev(usersSearched);

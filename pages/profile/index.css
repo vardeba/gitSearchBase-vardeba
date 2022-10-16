@@ -1,10 +1,11 @@
 body {
-    width: 26.5625;
-    max-width: 100%;
+    width: 26.5625rem;
+    max-width: 100vw;
     min-height: 100vh;
     margin: 0 auto;
     display: flex;
     flex-direction: column;
+    background-color: #000000;
 }
 
 header {
@@ -66,14 +67,16 @@ header {
 main {
     width: 100%;
     display: flex;
-    flex-direction: column;
     align-items: center;
+    margin-top: 3rem;
 }
 
 .repositories {
+    max-width: 100vw;
     display: flex;
     flex-wrap: wrap;
     padding: 1rem;
+    gap: 1.375rem;
 }
 
 .repository {
@@ -111,7 +114,14 @@ main {
     gap: 0.875rem;
 }
 
-
+@media(min-width: 50rem){
+    body {
+        width: 51rem;
+    }
+    header {
+        flex-direction: row;
+    }
+}
 
 
 

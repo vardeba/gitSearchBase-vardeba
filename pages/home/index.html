@@ -5,32 +5,34 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="../../styles/globalStyles.css" />
+    <link rel="stylesheet" href="../../styles/buttons.css" />
     <link rel="stylesheet" href="./index.css" />
     <title>Git Search</title>
   </head>
   <body>
     <main>
       <section class="title">
-        <h1 class="pageTitle">Git Search</h1>
-        <p class="pageDescription">Encontre e se conecte com profissionais de forma rápida e fácil</p>
-        <div class="recents">
-          <h3 class="recentsTitle">Achados Recentemente:</h3>
-          <ul class="recentsList">
-            <li class="recentSearched">
-              <a class="imgContainer" href="#">
-                <img class="profilePic" src="#" alt="Foto de #" title="Acessar este perfil">
-              </a>
-            </li>
-          </ul>
+        <div class="titleContainer">
+          <h1 class="pageTitle">Git Search</h1>
+          <p class="pageDescription">Encontre e se conecte com profissionais de forma rápida e fácil</p>
+          <div class="recents">
+            <h3 class="recentsTitle">Achados Recentemente:</h3>
+            <ul class="recentsList">
+            </ul>
+          </div>
         </div>
       </section>
       <section class="searchUser">
-        <h2 class="searchTitle">Procurar por um usuário</h2>
-        <h3 searchDescription>Usuário github</h3>
-        <input class="searchInput" type="text" name="userToSearch" id="userToSearch" placeholder="Digite um usuário do github aqui...">
-        <button class="searchButton">Ver perfil do github</button>
+        <div class="searchContainer">
+          <h2 class="searchTitle">Procurar por um usuário</h2>
+          <h3 class="searchDescription">Usuário github</h3>
+          <input class="searchInput" type="text" name="userToSearch" id="userToSearch" placeholder="Digite um usuário do github aqui...">
+          <p class="user-not-found hide">Usuário não encontrado</p>
+          <button class="searchButton">Ver perfil do github</button>
+          </div>
       </section>
     </main>
-    <script src="index.js"></script>
+    <script src="../../scripts/list.js"></script>
+    <script src="./index.js"></script>
   </body>
 </html>

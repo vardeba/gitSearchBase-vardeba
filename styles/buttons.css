@@ -46,7 +46,34 @@
     background-color: var(--color-brand-2);
 }
 
+.searchButton {
+    height: var(--button-height-1);
+    background-color: rgba(214, 51, 108, 0.4);
+    padding: var(--padding-btn-1);
+    border: none;
+    border-radius: var(--radius-3);
+    font-size: var(--text-3);
+    font-weight: var(--font-weight-3);
+    color: rgba(255, 255, 255, 0.35);
+    margin-top: 1.25rem;
+}
 
+.searchButton-active {
+    height: var(--button-height-1);
+    background-color: var(--color-brand-2);
+    padding: var(--padding-btn-1);
+    border: none;
+    border-radius: var(--radius-3);
+    font-size: var(--text-3);
+    font-weight: var(--font-weight-3);
+    color: var(--color-grey-7);
+    cursor: pointer;
+    margin-top: 1.25rem;
+}
+
+.searchButton-active:hover {
+    background-color: var(--color-brand-1);
+}
 
 
 
