@@ -11,6 +11,7 @@ function showUserSearched(array){
 function createUser(user){
     const li = document.createElement('li');
     li.classList.add('recentSearched');
+    li.setAttribute('id', `${user.id}`);
 
     const a = document.createElement('a');
     a.classList.add('dev-img-container');
@@ -34,9 +35,22 @@ function createUser(user){
 
 showUserSearched(usersSearched);
 
+function search(){
+    const button = document.getElementById('searchButton');
 
+    button.addEventListener('click', () => {
+        button.innerHTML = '';
 
+        const img = document.createElement('img');
+        img.setAttribute('src', '../../assets/spinner.svg');
+        img.setAttribute('alt', "spinner");
+        img.classList.add('loading');
 
+        button.appendChild(img);
+    })
+}
+
+search();
 
 
 
