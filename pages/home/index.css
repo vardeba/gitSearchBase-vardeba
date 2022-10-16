@@ -173,13 +173,19 @@ main {
 
 @media(min-width: 63rem){
     body {
-        width: 100vw;
+        min-width: 100vw;
+        min-height: 100vh;
     }
     main {
         flex-direction: row;
     }
     .title {
         width: 50%;
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-items: center;
+
     }
     .titleContainer {
         margin: 0 auto;
@@ -191,6 +197,7 @@ main {
     }
     .searchUser {
         width: 50%;
+        min-height: 100vh;
         display: flex;
         align-items: center;
         justify-items: center;
