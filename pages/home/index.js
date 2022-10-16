@@ -107,67 +107,6 @@ function searchAnimationStop(){
     button.innerText = "Ver perfil do github";
 };
 
-// function searchOnAPI(){
-//     const searchInput = document.getElementById('searchInput');
-//     const spanUserNotFound = document.querySelector('.user-not-found');
-//     const button = document.getElementById('searchButton');
-//     let userToSearch = '';
-//     try {
-//         button.addEventListener('click', () => {
-//             searchAnimationStart();
-//             userToSearch = searchInput.value;
-//             console.log(userToSearch);
-//             const userToShow = fetch(`https://api.github.com/users/${userToSearch}`, {
-//                 method: 'GET',
-//                 headers: {
-//                     'Content-Type': 'application/json'
-//                 }
-//             })
-//             .then(userJson => userToShow.json())
-//             .then(userJson => {
-//                 searchAnimationStop();
-//                 usersSearched = [userJson, ...usersSearched];
-//                 setDataInLocalstorage();
-//                 window.location.replace("../profile/index.html");
-//             }) 
-//         });
-//     }catch{
-//         spanUserNotFound.classList.remove('hide');
-//         spanUserNotFound.classList.add('show');
-//     };
-// };
-// async function searchOnAPI(){
-//     const searchInput = document.getElementById('searchInput');
-//     const spanUserNotFound = document.querySelector('.user-not-found');
-//     const button = document.getElementById('searchButton');
-//     let userToSearch = '';
-//     try {
-//         button.addEventListener('click', () => {
-//             searchAnimationStart();
-//             userToSearch = searchInput.value;
-//             console.log(userToSearch);
-//         });
-//         console.log(userToSearch);
-//         let userToShow = await fetch(`https://api.github.com/users/${userToSearch}`);
-//         if (userToShow.status != 200){
-//             throw new Error('erro');
-//         }
-//         let userJson = userToShow.json();
-//         button.innerHTML = '';
-//         button.classList.add('searchButton');
-//         button.setAttribute('id', "searchButton");
-//         button.innerText = "Ver perfil do github";
-
-//         usersSearched = [userJson, ...usersSearched];
-//         setDataInLocalstorage();
-//         window.location.replace("../profile/index.html")
-//     }catch{
-//         spanUserNotFound.classList.remove('hide');
-//         spanUserNotFound.classList.add('show');
-//     };
-// };
-
-// searchOnAPI('vardeba')
 
 async function searchOnAPI(user){
     const spanUserNotFound = document.querySelector('.user-not-found');
